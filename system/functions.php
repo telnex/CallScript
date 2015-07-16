@@ -32,6 +32,13 @@ function datediff($date1, $date2)
     $s=($diff%3600)%60;
     return $m.' мин. '.$s.' сек.';
 }
+function timer($date1, $date2)
+{
+    $diff = $date2 - $date1;
+    $m=floor(($diff%3600)/60);
+    $s=($diff%3600)%60;
+    return '<span id="mins">'.$m.'</span> мин. <span id="secs">'.$s.'</span> сек.';
+}
 /* Функции отображения статуса */
 # по ID
 function status($online)

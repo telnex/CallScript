@@ -69,8 +69,25 @@ if ($row['ans']!='') {
 			</div>";
 }
 $time = mysql_fetch_assoc(mysql_query("SELECT `stat`.*,`users`.`login` FROM `stat` INNER JOIN `users` ON `stat`.`user`=`users`.`id` ORDER BY `id` DESC LIMIT 1"));
-$diff = datediff($time['start_time'],time());
+$diff = timer($time['start_time'],time());
 echo '<p class="text-info">Время: '.$diff.'</p>';
+echo '<script>
+			var timer;
+			mins = document.getElementById(\'mins\').innerHTML;
+			secs = document.getElementById(\'secs\').innerHTML;
+			timer = setInterval(
+				function () {
+					secs++;
+					if (secs == 59) {
+						mins++;
+						secs = 0;
+						document.getElementById(\'mins\').innerHTML = mins;
+					}
+				document.getElementById(\'secs\').innerHTML = secs;
+				},
+				1000
+				);
+		</script>';
 echo '<a class="btn btn-info btn-large" href="newcall.php?stopcall">Стоп-Звонок</a>';
 foot();
 ?>
