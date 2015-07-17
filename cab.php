@@ -17,6 +17,7 @@ if ($user['level'] == 3)
 	echo ' <span class="label label-info">Администратор</span>';
 echo '<br/>';
 echo '<small><i>Последний вход: '.clock($user['time']).'.</i></small><br>';
+echo 'Логин: '.$user['login'].'<br>';
 echo 'Количество звонков: '.$total.'.<br>';
 echo 'Общее время: '.datediff(0,$alltime).'.</p>';
 echo '<table class="table table-bordered table-hover">
@@ -27,7 +28,7 @@ echo '<table class="table table-bordered table-hover">
 		</tr>';
 $query = mysql_query("SELECT `start_time`,`stop_time` FROM `stat` WHERE `user`='".$user['id']."' ORDER BY `id` DESC LIMIT ".$page.",".$set['str']);
 while ($row = mysql_fetch_assoc($query)) {
-	echo '<tr><td>'.$user['login'].'</td><td>'.datediff($row['start_time'],$row['stop_time']).'</td><td>'.clock($row['stop_time']).'</td></tr>';
+	echo '<tr><td>'.$user['name'].'</td><td>'.datediff($row['start_time'],$row['stop_time']).'</td><td>'.clock($row['stop_time']).'</td></tr>';
 }
 echo '</table>';
 if($total > $set['str']) {

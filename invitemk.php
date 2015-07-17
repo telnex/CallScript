@@ -69,7 +69,7 @@ if ($row['ans']!='') {
 			</div>";
 }
 $time = mysql_fetch_assoc(mysql_query("SELECT `stat`.*,`users`.`login` FROM `stat` INNER JOIN `users` ON `stat`.`user`=`users`.`id` ORDER BY `id` DESC LIMIT 1"));
-$diff = timer($time['start_time'],time());
+$diff = datediff($time['start_time'],time(), $timer = true);
 echo '<p class="text-info">Время: '.$diff.'</p>';
 echo '<script>
 			var timer;

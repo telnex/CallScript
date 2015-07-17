@@ -25,19 +25,18 @@ function clock($time)
 	$timep = str_replace($months_eng,$months_rus,$timep);
 	return $timep;
 }
-function datediff($date1, $date2)
+
+function datediff($date1, $date2, $timer = false)
 {
     $diff = $date2 - $date1;
     $m=floor(($diff%3600)/60);
     $s=($diff%3600)%60;
-    return $m.' мин. '.$s.' сек.';
-}
-function timer($date1, $date2)
-{
-    $diff = $date2 - $date1;
-    $m=floor(($diff%3600)/60);
-    $s=($diff%3600)%60;
-    return '<span id="mins">'.$m.'</span> мин. <span id="secs">'.$s.'</span> сек.';
+    if ($timer == false) {        
+        return $m.' мин. '.$s.' сек.';
+    } else 
+        return '<span id="mins">'.$m.'</span> мин. <span id="secs">'.$s.'</span> сек.';
+
+    
 }
 /* Функции отображения статуса */
 # по ID
