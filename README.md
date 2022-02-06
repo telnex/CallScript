@@ -1,5 +1,6 @@
 ## CMS для речевых скриптов «холодных звонков» 
 Версия: 1.0.1
+
 ![лого](https://4.bp.blogspot.com/-Vv6dbZw9wX8/VZWPJ2xj0KI/AAAAAAAAA-4/A9H1VPQPcVQ/s1600/design3.png)
 
 `Release Date: 17.07.2015`
